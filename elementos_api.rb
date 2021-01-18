@@ -1,5 +1,6 @@
 def elementos_api(api)
     contenido = ''
+    count = 0
 
     api["photos"].each do |i|
         i.each do |x,v|
@@ -8,11 +9,12 @@ def elementos_api(api)
                                 "+imagen(v)+"
                             </div>
                             "
+                count += 1
             end
         end
     end
 
-    return contenido
+    return [contenido,count.to_s]
 end
 
 # ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -23,12 +23,16 @@ def build_web_page(data)
             <h1 class="text-white text-center"> Prueba David Aravena </h1>
         </header>
 '+
+#//////////////////////////////conteo de fotos descargadas//////////////////////////////////
++'
+        <h3 class="text-center py-2"> Cantidad de fotos descargadas: '+elementos_api(data)[1]+' </h3>
+'+
 # ////////////////////////elementos provenientes de la api////////////////////////////////////////////////////
 +'
         <main>
             <section class="container">
                 <div class="row">
-                    '+elementos_api(data)+'  
+                    '+elementos_api(data)[0]+'  
                 </div>
             <section>
         </main
