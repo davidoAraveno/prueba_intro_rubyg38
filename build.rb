@@ -1,8 +1,12 @@
 require_relative 'request'
+require_relative 'elementos_api'
 
 # //////////////////////////////////////////////////////////////////////////
 
-def build_web_page()
+api_nasa = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=","mCXksvEXaBCZhCq6ee9CcGbB833XgRaPM3b2oesx")
+
+
+def build_web_page(data)
     '<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -15,18 +19,22 @@ def build_web_page()
         <title>Document</title>
     </head>
     <body>
-        <header class="bg-secondary">
-            <h1 class="text-white"> Proyecto api nasa David Aravena </h1>
+        <header class="bg-secondary py-2">
+            <h1 class="text-white text-center"> Prueba David Aravena </h1>
         </header>
-
+'+
+# ////////////////////////elementos provenientes de la api////////////////////////////////////////////////////
++'
         <main>
             <section class="container">
                 <div class="row">
-                    
+                    '+elementos_api(data)+'  
                 </div>
             <section>
         </main
-        
+ '+
+ #//////////////////////////////////////////////////////////////////////////////////////
+ +'
 
 
 
@@ -37,4 +45,4 @@ def build_web_page()
     </html>'
 end
 
-File.write("./index.html", build_web_page)
+File.write("./index.html", build_web_page(api_nasa))
